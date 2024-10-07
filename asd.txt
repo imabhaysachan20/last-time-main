@@ -1,0 +1,13 @@
+import { createClient } from 'contentful';
+
+const client = createClient({
+  space: "zxwltbyujwus",
+  accessToken: "nSgSdYM9N_B3V3-XP0muXRAZRtgInnJ7N86dXQJSJqc",
+});
+
+export async function fetchReviews() {
+  const entries = await client.getEntries({
+    content_type: 'reviews',
+  });
+  return entries.items;
+}
